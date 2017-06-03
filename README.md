@@ -10,5 +10,5 @@ docker pull satyamz/docker-jupyter
 ### Run Jupyter Notebook
 
 ```
-docker run -i -p 8888:8888 -v /local/path/to/notebooks:/home/notebooks satyamz/docker-jupyeter
+docker run -i -p 8888:8888 -v /local/path/to/notebooks:/home/notebooks satyamz/docker-jupyter
 ```
