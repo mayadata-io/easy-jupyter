@@ -1,4 +1,4 @@
-FROM debian:8.5
+FROM debian:8.8
 
 MAINTAINER Satyam Zode <satyamzode@gmail.com>
 
