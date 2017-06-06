@@ -1,7 +1,7 @@
 # Docker Image for Data Science Applications
 ## Usage
 
-This Dockerfile will crete docker image which consists of data science tools written in python. 
+This Dockerfile will craete docker image which consists of data science tools written in python.
 Currently, this docker image will pull notebooks from github repository and will start notebook server.
 
 
