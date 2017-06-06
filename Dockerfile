@@ -22,10 +22,13 @@ RUN apt-get install -y curl grep sed dpkg && \
 
 ENV PATH /opt/conda/bin:$PATH
 
-EXPOSE 8888
+ADD launch.sh /
 
-CMD ["mkdir", "/home/notebooks"]
+ENV GIT_REPO https://github.com/satyamz/ml-playground.git
+
+
+EXPOSE 8888
 
 ENTRYPOINT [ "/usr/bin/tini", "--" ]
 
-CMD [ "/opt/conda/bin/jupyter", "notebook", "--ip='*'", "--notebook-dir=/home/notebooks", "--port=8888", "--no-browser" ]
+CMD ["/launch.sh"]
