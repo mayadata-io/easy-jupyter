@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: openebs-ds-pod
+
+spec:
+  hostNetwork: true
+
+  containers:
+  - image: satyamz/docker-jupyter:v0.3
+    name: docker-jupyter
+    ports:
+      - containerPort: 8888
+        hostPort: 8888
