@@ -36,7 +36,7 @@ ubuntu@kubemaster-01$ kubectl get pods
 ubuntu@kubemaster-01:~$ kubectl describe pods | grep IP
 ```
 
-### Get access Jupyter Notebook access token
+### Get Jupyter Notebook Server access token
 ```
 ubuntu@kubemaster-01:~$ kubectl logs  openebs-ds-pod | grep -oP "token=.*"
 ```
