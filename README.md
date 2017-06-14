@@ -8,11 +8,11 @@ Currently, this docker image will pull notebooks from github repository and will
 ### Pull satyamz/docker-jupyter image
 
 ```
-docker pull satyamz/docker-jupyter:v0.3
+docker pull satyamz/docker-jupyter:v0.4
 ```
 
-### Run Jupyter Notebook
+### Run Jupyter Notebook inside docker container
 
 ```
-docker run -e GIT_REPO=github/repo/url/to/notebooks.git -p 8888:8888 satyamz/docker-jupyter:v0.3
+docker run -e GIT_REPO=github/repo/url/to/notebooks.git -p 8888:8888 satyamz/docker-jupyter:v0.4
 ```
