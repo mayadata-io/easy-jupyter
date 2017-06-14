@@ -7,8 +7,19 @@ spec:
   hostNetwork: true
 
   containers:
-  - image: satyamz/docker-jupyter:v0.3
+  - image: satyamz/docker-jupyter:v0.4
     name: docker-jupyter
+    env:
+    - name: GIT_REPO
+      value: https://github.com/vharsh/plot-demo.git
     ports:
       - containerPort: 8888
         hostPort: 8888
+    volumeMounts:
+      - name: shared-data
+        mountPath: /mnt/data
+
+  volumes:
+    - name: shared-data
+      hostPath:
+        path: /data
