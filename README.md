@@ -16,3 +16,19 @@ docker pull satyamz/docker-jupyter:v0.4
 ```
 docker run -e GIT_REPO=github/repo/url/to/notebooks.git -p 8888:8888 satyamz/docker-jupyter:v0.4
 ```
+
+### Optional environment variables required
+
+```
+# Github handle
+GITHUB_USERNAME
+
+# User name to set in git config
+USER_NAME
+
+# User email address
+USER_EMAIL
+
+#Github personal access token
+GITHUB_TOKEN
+```

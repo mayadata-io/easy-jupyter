@@ -19,6 +19,25 @@ $ vagrant ssh kubemaster-01
 
 Once logged in to kubemaster-01
 
+#### Set following environment variable in openebs-ds.yaml
+
+
+```
+# Github handle
+GITHUB_USERNAME
+
+# User name to set in git config
+USER_NAME
+
+# User email address
+USER_EMAIL
+
+#Github personal access token
+GITHUB_TOKEN
+```
+
+
+
 ### Create pods
 
 ```

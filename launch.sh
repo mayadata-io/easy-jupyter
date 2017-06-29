@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "Fetching notebooks from" $GIT_REPO 
+echo "Fetching notebooks from" $GIT_REPO
 
 git clone $GIT_REPO /home/notebooks
 

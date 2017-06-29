@@ -1,25 +1,63 @@
-apiVersion: v1
-kind: Pod
+apiVersion: apps/v1beta1
+kind: Deployment
 metadata:
-  name: openebs-ds-pod
-
+  name: jupyter-server
+  namespace: default
 spec:
-  hostNetwork: true
-
-  containers:
-  - image: satyamz/docker-jupyter:v0.4
-    name: docker-jupyter
-    env:
-    - name: GIT_REPO
-      value: https://github.com/vharsh/plot-demo.git
-    ports:
-      - containerPort: 8888
-        hostPort: 8888
-    volumeMounts:
-      - name: shared-data
-        mountPath: /mnt/data
-
-  volumes:
-    - name: shared-data
-      hostPath:
-        path: /data
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        name: jupyter-server
+    spec:
+      containers:
+      - name: jupyter-server
+        imagePullPolicy: Always
+        image: satyamz/docker-jupyter:v0.4
+        ports:
+        - containerPort: 8888
+        env:
+        - name: GIT_REPO
+          value: https://github.com/vharsh/plot-demo.git
+        - name: GITHUB_USERNAME
+          value: "your-username"
+        - name: USER_NAME
+          value: "Your Name"
+        - name: USER_EMAIL
+          value: "you@mail.com"
+        - name: GITHUB_TOKEN
+          value: "GithubPersonalAccessToken"
+        volumeMounts:
+        - name: data-vol
+          mountPath: /mnt/data
+      volumes:
+      - name: data-vol
+        persistentVolumeClaim:
+          claimName: jupyter-data-vol-claim
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: jupyter-data-vol-claim
+spec:
+  storageClassName: openebs-jupyter
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5G
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: jupyter-service
+spec:
+  ports:
+  - name: ui
+    port: 8888
+    nodePort: 32424
+    protocol: TCP
+  selector:
+    name: jupyter-server
+  sessionAffinity: None
+  type: NodePort

@@ -26,7 +26,6 @@ ADD launch.sh /
 
 ENV GIT_REPO https://github.com/satyamz/ml-playground.git
 
-
 EXPOSE 8888
 
 ENTRYPOINT [ "/usr/bin/tini", "--" ]
