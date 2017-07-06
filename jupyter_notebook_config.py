@@ -7,7 +7,9 @@ user_name = os.getenv("USER_NAME")
 github_user_name = os.getenv("GITHUB_USERNAME")
 user_email = os.getenv("USER_EMAIL")
 user_token = os.getenv("GITHUB_TOKEN")
-branch_name = uuid.uuid4().hex + '-'+ github_user_name
+if github_user_name:
+    global branch_name
+    branch_name = uuid.uuid4().hex + '-' + github_user_name
 
 # Configuration file for jupyter-notebook.
 
@@ -599,9 +601,11 @@ def gitconfig(user_name, user_email, user_token, branch_name):
     out, err, retcode = _system('git remote set-url origin ' + final_url)
     out, err, retcode = _system('git checkout -b ' + branch_name)
 
-gitconfig(user_name, user_email, user_token, branch_name)
 
-c.FileContentsManager.post_save_hook = save
+# Only create a post-save hook if required env vars are set
+if user_name and github_user_name and user_email and user_token:
+    gitconfig(user_name, user_email, user_token, branch_name)
+    c.FileContentsManager.post_save_hook = save
 
 ## 
 #c.FileContentsManager.root_dir = ''
