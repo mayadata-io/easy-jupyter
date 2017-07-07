@@ -10,7 +10,7 @@
 IS_DOCKER_INSTALLED       := $(shell which docker >> /dev/null 2>&1; echo $$?)
 
 help:
-  @echo ""
+	@echo ""
 	@echo "Usage:-"
 	@echo "\tmake build             -- will build create the docker image"
 	@echo ""
@@ -30,7 +30,7 @@ deps: _build_check_docker
 
 _build_image:
 	@echo "INFO: Building container image for easy-jupyter"
-	build -t openebs/easy-jupyter .
+	build -t openebs/easy-jupyter:ci .
 
 _push_image:
 	@echo "INFO: Publish container (openebs/easy-jupyter)"
