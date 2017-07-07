@@ -30,7 +30,7 @@ deps: _build_check_docker
 
 _build_image:
 	@echo "INFO: Building container image for easy-jupyter"
-	build -t openebs/easy-jupyter:ci .
+	docker build -t openebs/easy-jupyter:ci .
 
 _push_image:
 	@echo "INFO: Publish container (openebs/easy-jupyter)"
