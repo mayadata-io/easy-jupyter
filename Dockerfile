@@ -22,7 +22,7 @@ RUN apt-get install -y curl grep sed dpkg && \
 
 ENV PATH /opt/conda/bin:$PATH
 
-ADD launch.sh /
+ADD launch.sh jupyter_notebook_config.py openebs_utils.py /
 
 ENV GIT_REPO https://github.com/satyamz/ml-playground.git
 
