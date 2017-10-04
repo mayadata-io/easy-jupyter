@@ -9,7 +9,7 @@ RUN apt-get update --fix-missing && apt-get install -y wget bzip2 ca-certificate
     git mercurial subversion
 
 RUN echo 'export PATH=/opt/conda/bin:$PATH' > /etc/profile.d/conda.sh && \
-    ANACONDA_VERSION=`https://repo.continuum.io/archive -q -O - | grep -o "Anaconda.-.....-Linux-x86_64.sh" | sort | tail -1`
+    ANACONDA_VERSION=`wget https://repo.continuum.io/archive -q -O - | grep -o "Anaconda.-.....-Linux-x86_64.sh" | sort | tail -1`
     wget --quiet https://repo.continuum.io/archive/${ANACONDA_VERSION} -O ~/anaconda.sh && \
     /bin/bash ~/anaconda.sh -b -p /opt/conda && \
     rm ~/anaconda.sh
