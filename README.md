@@ -5,16 +5,16 @@ This Dockerfile will craete docker image which consists of data science tools wr
 Currently, this docker image will pull notebooks from github repository and will start notebook server.
 
 
-### Pull satyamz/docker-jupyter image
+### Pull openebs/easy-jupyter image
 
 ```
-docker pull satyamz/docker-jupyter:v0.4
+docker pull openebs/easy-jupyter:latest
 ```
 
 ### Run Jupyter Notebook inside docker container
 
 ```
-docker run -e GIT_REPO=github/repo/url/to/notebooks.git -p 8888:8888 satyamz/docker-jupyter:v0.4
+docker run -e GIT_REPO=github/repo/url/to/notebooks.git -p 8888:8888 openebs/easy-jupyter:latest
 ```
 
 ### Optional environment variables required
