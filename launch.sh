@@ -7,4 +7,4 @@ cp jupyter_notebook_config.py /home/notebooks/
 cp openebs_utils.py /home/notebooks/
 
 echo "Running Notebook"
-/opt/conda/bin/jupyter notebook --ip='*' --notebook-dir=/home --port=8888 --no-browser
+$(command -v jupyter) notebook --ip='*' --notebook-dir=/home --port=8888 --no-browser
