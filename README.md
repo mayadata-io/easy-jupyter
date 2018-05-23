@@ -1,8 +1,8 @@
 # Docker Image for Data Science Applications
 ## Usage
 
-This Dockerfile will craete docker image which consists of data science tools written in python.
-Currently, this docker image will pull notebooks from github repository and will start notebook server.
+This Dockerfile will create a Docker image which consists of data science tools written in Python.
+Currently, this Docker image will pull notebooks from the Github repository and will start the notebook server.
 
 
 ### Pull openebs/easy-jupyter image
@@ -11,7 +11,7 @@ Currently, this docker image will pull notebooks from github repository and will
 docker pull openebs/easy-jupyter:latest
 ```
 
-### Run Jupyter Notebook inside docker container
+### Run Jupyter Notebook inside the docker container
 
 ```
 docker run -e GIT_REPO=github/repo/url/to/notebooks.git -p 8888:8888 openebs/easy-jupyter:latest
@@ -23,10 +23,10 @@ docker run -e GIT_REPO=github/repo/url/to/notebooks.git -p 8888:8888 openebs/eas
 # Github handle
 GITHUB_USERNAME
 
-# User name to set in git config
+# User name to be set in .gitconfig
 USER_NAME
 
-# User email address
+# User email address also to be set in .gitconfig
 USER_EMAIL
 
 #Github personal access token
