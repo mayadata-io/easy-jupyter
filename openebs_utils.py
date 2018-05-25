@@ -38,7 +38,6 @@ class Writer(Thread):
             for i in range(1, 2000000):
                 print("Writing ", i)
                 file.write(str(i))
-                # time.sleep(1)
 
 def run():
     """
