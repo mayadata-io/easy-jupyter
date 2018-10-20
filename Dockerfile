@@ -23,6 +23,10 @@ RUN apt-get install -y curl grep sed dpkg && \
 
 ENV PATH /opt/conda/bin:$PATH
 
+RUN python -m pip install --upgrade https://storage.googleapis.com/tensorflow/mac/cpu/tensorflow-0.12.0-py3-none-any.whl
+
+RUN pip install --upgrade keras
+
 ADD launch.sh jupyter_notebook_config.py openebs_utils.py /
 
 ENV GIT_REPO https://github.com/satyamz/ml-playground.git
